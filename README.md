@@ -14,7 +14,7 @@ Author, review and finish a technical specification from an interactive session.
 
 ![master-document-spec in use: drafting, review and preview of an Android SDK 36 specification](docs/master-document-spec-demo.gif)
 
-The animation shows a session authoring an Android 16 (SDK 36) app specification: the live drafting activity, the per-section review dialog, approval with checkpoint, the document preview, and the final status.
+The animation is a 10 fps screen recording of a session working on an Android 16 (SDK 36) app specification: the per-section review dialog, a requested change, the live revision draft, approval with checkpoint, the document preview, and the status output.
 
 External tools on `PATH`: `latexmk` and XeLaTeX from TeX Live, `mutool` from MuPDF, `pdfinfo` from poppler, `bwrap` from bubblewrap, and `flock` from util-linux.
 
