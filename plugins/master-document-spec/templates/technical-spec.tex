@@ -1,0 +1,60 @@
+\documentclass[11pt,@@PAPER@@]{scrartcl}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setsansfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]
+\setmonofont{DejaVu Sans Mono}[Scale=0.82]
+\usepackage[@@LANGUAGE@@]{babel}
+\usepackage[margin=24mm,headheight=18pt]{geometry}
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{FF7D27}
+\definecolor{ink}{HTML}{182630}
+\definecolor{paper}{HTML}{FFFFFF}
+\usepackage{amsmath,amssymb,booktabs,longtable,tabularx,array,graphicx,tikz}
+\usepackage{placeins}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,columns=fullflexible,keepspaces=true,frame=single,rulecolor=\color{ink!20},backgroundcolor=\color{ink!3},keywordstyle=\color{ink}\bfseries,commentstyle=\color{ink!60},showstringspaces=false}
+\usepackage[most]{tcolorbox}
+\newtcolorbox[auto counter,number within=section]{requirement}[1]{breakable,colback=ink!3,colframe=ink!30,title={Requirement \thetcbcounter: #1},fonttitle=\sffamily\bfseries}
+\newtcolorbox[auto counter,number within=section]{nonfunctional}[1]{breakable,colback=ink!3,colframe=ink!30,title={Quality requirement \thetcbcounter: #1}}
+\newtcolorbox{constraint}[1]{breakable,colback=accent!5,colframe=accent!50!ink,title={Constraint #1}}
+\newtcolorbox{decision}[1]{breakable,colback=ink!3,colframe=ink!30,title={Decision #1}}
+\newtcolorbox{risk}[1]{breakable,colback=accent!5,colframe=accent!50!ink,title={Risk #1}}
+\newtcolorbox{example}[1]{breakable,colback=ink!3,colframe=ink!30,title={Example #1}}
+\newtcolorbox[auto counter,number within=section]{acceptance}[1]{breakable,colback=ink!3,colframe=ink!30,title={Acceptance test \thetcbcounter: #1}}
+\usepackage{scrlayer-scrpage}
+\clearpairofpagestyles
+\ihead{\sffamily\small @@TITLE@@}
+\ohead{\sffamily\small @@VERSION@@}
+\ifoot{\sffamily\small Technical specification}
+\ofoot{\pagemark}
+\setkomafont{section}{\sffamily\bfseries\color{ink}}
+\setkomafont{subsection}{\sffamily\bfseries\color{ink}}
+\usepackage{zref-user,zref-abspage}
+\newcommand{\specstart}[1]{\zlabel{start-#1}}
+\newcommand{\specend}[1]{\zlabel{end-#1}}
+\newif\ifspecappendix
+\newcommand{\specappendix}[1]{\ifspecappendix\else\appendix\specappendixtrue\fi\section{#1}}
+\usepackage[colorlinks=true,linkcolor=ink,urlcolor=ink,citecolor=ink]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{@@SPACING@@}
+\emergencystretch=2em
+\begin{document}
+\begin{titlepage}
+\color{ink}
+\vspace*{20mm}
+{\sffamily\small TECHNICAL SPECIFICATION\par}
+\vspace{8mm}
+{\sffamily\Huge\bfseries @@TITLE@@\par}
+\vspace{6mm}
+{\color{accent}\rule{48mm}{2pt}\par}
+\vfill
+{\large @@AUTHOR@@\par}
+\vspace{4mm}
+Version @@VERSION@@\par
+@@DATE@@\par
+\end{titlepage}
+\tableofcontents
+\clearpage
+@@SECTIONS@@
+\end{document}
